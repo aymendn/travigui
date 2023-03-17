@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppMethod {
   const AppMethod._();
+  
 
   static String? emailValidator(String? email) {
     if (email == null || email.isEmpty) {
@@ -39,6 +40,13 @@ class AppMethod {
     }
     if (phone.length < 10) {
       return 'Phone must be at least 10 characters';
+    }
+    return null;
+  }
+
+  static String? generalValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required';
     }
     return null;
   }

@@ -13,6 +13,8 @@ class CustomTextFormField extends HookConsumerWidget {
     this.obscureText = false,
     this.icon,
     this.hint = '',
+    this.keyboradType = TextInputType.text,
+    this.isLarge = false,
   });
 
   final TextEditingController controller;
@@ -21,6 +23,8 @@ class CustomTextFormField extends HookConsumerWidget {
   final String? Function(String?)? validator;
   final bool obscureText;
   final Widget? icon;
+  final TextInputType keyboradType;
+  final bool isLarge;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,12 +32,28 @@ class CustomTextFormField extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: const TextStyle(fontSize: 14),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(fontSize: 14),
+            ),
+            if (isLarge)
+              const Tooltip(
+                message: 'Bio is a short description about you',
+                child: Icon(
+                  Icons.info_outline,
+                  color: AppColor.greyText,
+                ),
+              ),
+          ],
         ),
         const SizedBox(height: 4),
         TextFormField(
+          maxLines: isLarge ? 4 : 1,
+          textInputAction: TextInputAction.next,
+          keyboardType: keyboradType,
           obscureText: obscureText && isObscure.value,
           controller: controller,
           decoration: InputDecoration(

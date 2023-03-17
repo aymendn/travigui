@@ -8,12 +8,13 @@ class CustomButton extends StatelessWidget {
     this.onPressed,
     this.color = AppColor.primary,
     this.borderColor,
-    this.height = 48,
+    this.height = 50,
     this.icon,
     this.isIconRight = false,
     this.isLoading = false,
     this.textColor,
     this.isFullWidth = false,
+    this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
   });
 
   final String text;
@@ -26,6 +27,7 @@ class CustomButton extends StatelessWidget {
   final bool isIconRight;
   final bool isLoading;
   final bool isFullWidth;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         // add padding:
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: padding,
         // add border
         side: BorderSide(
           color: borderColor ?? Colors.transparent,

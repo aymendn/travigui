@@ -107,7 +107,9 @@ class OnboardingScreen extends HookConsumerWidget {
                           CustomButton(
                             isFullWidth: true,
                             text: 'Create an account',
-                            onPressed: () {},
+                            onPressed: () {
+                              context.push(AppRoute.signUp);
+                            },
                           ),
                         ],
                       )
