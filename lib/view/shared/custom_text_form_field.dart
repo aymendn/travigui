@@ -8,7 +8,7 @@ class CustomTextFormField extends HookConsumerWidget {
   const CustomTextFormField({
     super.key,
     required this.controller,
-    required this.label,
+    this.label,
     this.validator,
     this.obscureText = false,
     this.icon,
@@ -18,7 +18,7 @@ class CustomTextFormField extends HookConsumerWidget {
   });
 
   final TextEditingController controller;
-  final String label;
+  final String? label;
   final String hint;
   final String? Function(String?)? validator;
   final bool obscureText;
@@ -32,23 +32,24 @@ class CustomTextFormField extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              label,
-              style: const TextStyle(fontSize: 14),
-            ),
-            if (isLarge)
-              const Tooltip(
-                message: 'Bio is a short description about you',
-                child: Icon(
-                  Icons.info_outline,
-                  color: AppColor.greyText,
-                ),
+        if (label != null)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                label!,
+                style: const TextStyle(fontSize: 14),
               ),
-          ],
-        ),
+              if (isLarge)
+                const Tooltip(
+                  message: 'Bio is a short description about you',
+                  child: Icon(
+                    Icons.info_outline,
+                    color: AppColor.greyText,
+                  ),
+                ),
+            ],
+          ),
         const SizedBox(height: 4),
         TextFormField(
           maxLines: isLarge ? 4 : 1,

@@ -3,7 +3,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../core/app_methods.dart';
-import '../../../core/app_color.dart';
 import '../../../core/app_exension.dart';
 import '../../../core/app_route.dart';
 import '../../../providers/auth.dart';
@@ -11,6 +10,7 @@ import '../../shared/back_button.dart';
 import '../../shared/custom_button.dart';
 import '../../shared/custom_text_form_field.dart';
 import '../../shared/scaffold_with_safe_area.dart';
+import '../../shared/stepper/stepper.dart';
 
 class SignUpScreen extends StatefulHookConsumerWidget {
   const SignUpScreen({super.key});
@@ -41,7 +41,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     );
 
     Future<void> onFormSubmitted() async {
-      if (formKey.currentState!.validate()) {
+      if (!formKey.currentState!.validate()) {
         context.pushReplacement(AppRoute.signUpSecond);
       }
     }
@@ -64,12 +64,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
             ),
           ),
           SizedBox(height: height * 0.03),
-          const Text(
-            'stepper index: 0',
-            style: TextStyle(
-              color: AppColor.grey600,
-            ),
-          ),
+          const Steppers(index: 1),
           SizedBox(height: height * 0.03),
           Form(
             key: formKey,
