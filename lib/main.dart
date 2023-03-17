@@ -4,9 +4,12 @@ import 'core/app_route.dart';
 import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import './core/app_route.dart';
 import 'core/app_color.dart';
+import 'view/auth/seller_or_buyer_screen.dart';
 import 'view/laoding/loading_screen.dart';
+import 'view/home/buyer_screen.dart';
+import 'view/home/seller_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +43,10 @@ class IwdApp extends ConsumerWidget {
         useMaterial3: true,
       ),
       routes: AppRoute.routes,
-      home: const LoadingScreen(),
+
+      home: const SellerOrBuyerScreen(),
+
+
       // home: isFirstTime
       //     ? const OnboardingScreen()
       //     : StreamBuilder(
