@@ -37,6 +37,9 @@ class CustomTextFormField extends HookConsumerWidget {
           obscureText: obscureText && isObscure.value,
           controller: controller,
           decoration: InputDecoration(
+            hintStyle: const TextStyle(
+              color: AppColor.greyText,
+            ),
             iconColor: AppColor.greyText,
             prefixIconColor: AppColor.greyText,
             labelStyle: const TextStyle(
