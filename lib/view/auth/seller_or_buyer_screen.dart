@@ -15,7 +15,7 @@ class SellerOrBuyerScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             BackButtons(),
             SizedBox(
