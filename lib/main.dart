@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'core/app_route.dart';
 import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/app_color.dart';
-import 'view/home/buyer_screen.dart';
+import 'view/laoding/loading_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,17 +31,16 @@ class IwdApp extends ConsumerWidget {
     final isFirstTime = ref.watch(onboardingProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MicroHack',
+      title: 'Travigui',
       theme: ThemeData(
-        fontFamily: 'baloo2',
-        brightness: Brightness.dark,
+        fontFamily: 'sora',
         primarySwatch: Colors.purple,
         primaryColor: AppColor.primary,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
       ),
-      routes: const {},
-      home: const BuyerScreen(),
+      routes: AppRoute.routes,
+      home: const LoadingScreen(),
       // home: isFirstTime
       //     ? const OnboardingScreen()
       //     : StreamBuilder(
