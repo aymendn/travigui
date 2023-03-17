@@ -5,14 +5,7 @@ import 'mondher_screen.dart';
 import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import './core/app_route.dart';
 import 'core/app_color.dart';
-import 'view/auth/seller_or_buyer_screen.dart';
-import 'view/auth/sign_in_screen.dart';
-import 'view/auth/sign_up_screen.dart';
-import 'view/laoding/loading_screen.dart';
-import 'view/home/buyer_screen.dart';
-import 'view/home/seller_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +40,7 @@ class IwdApp extends ConsumerWidget {
       ),
       routes: AppRoute.routes,
 
-      home:  MondherScreen(),
+      home: const MondherScreen(),
 
       // home: isFirstTime
       //     ? const OnboardingScreen()

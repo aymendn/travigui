@@ -9,11 +9,11 @@ class SellerOrBuyerScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F9FA),
+      backgroundColor: const Color(0xffF8F9FA),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             SizedBox(
               height: 30,
             ),
@@ -22,7 +22,7 @@ class SellerOrBuyerScreen extends ConsumerWidget {
               height: 50,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'First,  Do You Want To?',
                 style: TextStyle(

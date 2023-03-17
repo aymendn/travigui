@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'index_container.dart';
 import 'step_container.dart';
+
 class Step extends StatelessWidget {
   const Step({
-    this.index,
+    super.key,
+    required this.index,
   });
-  final index;
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -16,60 +19,60 @@ class Step extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           index == 1
-              ? indexContainer(
+              ? const IndexContainer(
                   index: 1,
                   color: Color(0xffF56D38),
                 )
               : index == 2
-                  ? indexContainer(
+                  ? const IndexContainer(
                       index: 1,
                       color: Color(0xffF56D38),
                     )
-                  : indexContainer(
+                  : const IndexContainer(
                       color: Color(0xffF56D38),
                       index: 1,
                     ),
           index == 1
-              ? StepContainer(
+              ? const StepContainer(
                   color1: Color(0xffF56D38), color2: Color(0xffE9ECEF))
               : index == 2
-                  ? StepContainer(
+                  ? const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffF56D38))
-                  : StepContainer(
+                  : const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffF56D38)),
           index == 1
-              ? indexContainer(
+              ? const IndexContainer(
                   index: 2,
                   color: Color(0xffE9ECEF),
                 )
               : index == 2
-                  ? indexContainer(
+                  ? const IndexContainer(
                       index: 2,
                       color: Color(0xffF56D38),
                     )
-                  : indexContainer(
+                  : const IndexContainer(
                       index: 2,
                       color: Color(0xffF56D38),
                     ),
           index == 1
-              ? StepContainer(
+              ? const StepContainer(
                   color1: Color(0xffE9ECEF), color2: Color(0xffE9ECEF))
               : index == 2
-                  ? StepContainer(
+                  ? const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffE9ECEF))
-                  : StepContainer(
+                  : const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffF56D38)),
           index == 1
-              ? indexContainer(
+              ? const IndexContainer(
                   index: 3,
                   color: Color(0xffE9ECEF),
                 )
               : index == 2
-                  ? indexContainer(
+                  ? const IndexContainer(
                       index: 3,
                       color: Color(0xffE9ECEF),
                     )
-                  : indexContainer(
+                  : const IndexContainer(
                       index: 3,
                       color: Color(0xffF56D38),
                     ),

@@ -1,11 +1,6 @@
-
-
-import '../models/user_data.dart';
-
 class FirestoreRepository {
   const FirestoreRepository._();
 
-  
   // static Future<UserData> getUserData(String id) async {
   //   // try {
   //   //   final snapshot = await firestore.collection('users').doc(id).get();

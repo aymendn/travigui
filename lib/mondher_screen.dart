@@ -3,7 +3,7 @@ import 'view/shared/back_button.dart';
 
 class MondherScreen extends StatelessWidget {
   final index;
-  MondherScreen({this.index});
+  const MondherScreen({super.key, this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class MondherScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             SizedBox(
               height: 30,
             ),
@@ -20,7 +20,7 @@ class MondherScreen extends StatelessWidget {
               height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text('Few Steps Before Getting Your First Job !',
                   style: TextStyle(
                     fontSize: 25,
@@ -42,6 +42,7 @@ class MondherScreen extends StatelessWidget {
 
 class Step extends StatelessWidget {
   const Step({
+    super.key,
     this.index,
   });
   final index;
@@ -54,60 +55,60 @@ class Step extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           index == 1
-              ? indexContainer(
+              ? const indexContainer(
                   index: 1,
                   color: Color(0xffF56D38),
                 )
               : index == 2
-                  ? indexContainer(
+                  ? const indexContainer(
                       index: 1,
                       color: Color(0xffF56D38),
                     )
-                  : indexContainer(
+                  : const indexContainer(
                       color: Color(0xffF56D38),
                       index: 1,
                     ),
           index == 1
-              ? StepContainer(
+              ? const StepContainer(
                   color1: Color(0xffF56D38), color2: Color(0xffE9ECEF))
               : index == 2
-                  ? StepContainer(
+                  ? const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffF56D38))
-                  : StepContainer(
+                  : const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffF56D38)),
           index == 1
-              ? indexContainer(
+              ? const indexContainer(
                   index: 2,
                   color: Color(0xffE9ECEF),
                 )
               : index == 2
-                  ? indexContainer(
+                  ? const indexContainer(
                       index: 2,
                       color: Color(0xffF56D38),
                     )
-                  : indexContainer(
+                  : const indexContainer(
                       index: 2,
                       color: Color(0xffF56D38),
                     ),
           index == 1
-              ? StepContainer(
+              ? const StepContainer(
                   color1: Color(0xffE9ECEF), color2: Color(0xffE9ECEF))
               : index == 2
-                  ? StepContainer(
+                  ? const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffE9ECEF))
-                  : StepContainer(
+                  : const StepContainer(
                       color1: Color(0xffF56D38), color2: Color(0xffF56D38)),
           index == 1
-              ? indexContainer(
+              ? const indexContainer(
                   index: 3,
                   color: Color(0xffE9ECEF),
                 )
               : index == 2
-                  ? indexContainer(
+                  ? const indexContainer(
                       index: 3,
                       color: Color(0xffE9ECEF),
                     )
-                  : indexContainer(
+                  : const indexContainer(
                       index: 3,
                       color: Color(0xffF56D38),
                     ),
@@ -119,6 +120,7 @@ class Step extends StatelessWidget {
 
 class StepContainer extends StatelessWidget {
   const StepContainer({
+    super.key,
     required this.color1,
     required this.color2,
   });
@@ -147,6 +149,7 @@ class StepContainer extends StatelessWidget {
 
 class indexContainer extends StatelessWidget {
   const indexContainer({
+    super.key,
     required this.color,
     required this.index,
   });
@@ -158,10 +161,11 @@ class indexContainer extends StatelessWidget {
     return Container(
       height: 30,
       width: 30,
-      child: Center(
-          child: Text(index.toString(), style: TextStyle(color: Colors.white))),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(6)),
+      child: Center(
+          child: Text(index.toString(),
+              style: const TextStyle(color: Colors.white))),
     );
   }
 }

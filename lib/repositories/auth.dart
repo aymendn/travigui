@@ -1,19 +1,10 @@
-import 'package:http/http.dart' as http;
-
-import '../core/app_constant.dart';
-
 class AuthRepository {
   const AuthRepository._();
 
   static Future<void> signInWithEmail({
     required String email,
     required String password,
-  }) async {
-  
-
-   
-    
-  }
+  }) async {}
 
   static Future<void> signUpWithEmail({
     required String email,

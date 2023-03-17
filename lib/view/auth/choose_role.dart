@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 class ChooseRole extends StatelessWidget {
   const ChooseRole({
+    super.key,
     required this.child,
     required this.text,
   });
@@ -15,8 +17,8 @@ class ChooseRole extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
       ),
-      padding: EdgeInsets.all(30),
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: const EdgeInsets.all(30),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -24,13 +26,13 @@ class ChooseRole extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-              color: Color(0xffF2F5F6),
+              color: const Color(0xffF2F5F6),
               borderRadius: BorderRadius.circular(20),
             ),
             child: child,
           ),
           Text(text),
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Color(0xffF2F5F6),
             child: Icon(Icons.arrow_forward_ios, color: Colors.black),
           ),

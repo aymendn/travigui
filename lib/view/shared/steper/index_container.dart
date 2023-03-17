@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class indexContainer extends StatelessWidget {
-  const indexContainer({
+class IndexContainer extends StatelessWidget {
+  const IndexContainer({
+    super.key,
     required this.color,
     required this.index,
   });
@@ -13,10 +14,11 @@ class indexContainer extends StatelessWidget {
     return Container(
       height: 30,
       width: 30,
-      child: Center(
-          child: Text(index.toString(), style: TextStyle(color: Colors.white))),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(6)),
+      child: Center(
+          child: Text(index.toString(),
+              style: const TextStyle(color: Colors.white))),
     );
   }
 }

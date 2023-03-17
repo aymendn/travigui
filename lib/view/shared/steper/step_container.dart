@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 class StepContainer extends StatelessWidget {
   const StepContainer({
+    super.key,
     required this.color1,
     required this.color2,
   });
