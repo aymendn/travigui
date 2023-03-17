@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../core/app_exension.dart';
+import '../../core/app_route.dart';
 class ChooseAnoncementScreen extends StatelessWidget {
   const ChooseAnoncementScreen({super.key});
 
@@ -11,8 +14,8 @@ class ChooseAnoncementScreen extends StatelessWidget {
       body: Column(
         children: [
           Text('ChooseAnoncementScreen'),
-          ElevatedButton(onPressed: () => Navigator.pushNamed(context, '/service-form'), child: Text('service')),
-          ElevatedButton(onPressed: () => Navigator.pushNamed(context, '/job-form') , child: Text('job')),
+          ElevatedButton(onPressed: () => context.push(AppRoute.serviceForm),  child: Text('service')),
+          ElevatedButton(onPressed: () => context.push(AppRoute.jobForm), child: Text('job')),
           
         ],
       ),

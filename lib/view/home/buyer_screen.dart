@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '/core/app_exension.dart';
+import '/core/app_route.dart';
 
 class BuyerScreen extends ConsumerWidget {
   const BuyerScreen({super.key});
@@ -13,7 +15,7 @@ class BuyerScreen extends ConsumerWidget {
     body: Column(
         children: [
           Text('home screen of buyer'),
-          ElevatedButton(onPressed: () => Navigator.pushNamed(context, '/choose-announcement'), child: Text("Add Annoncement")),
+          ElevatedButton(onPressed: () => context.push(AppRoute.chooseAnnouncement), child: Text("Add Annoncement")),
 
         ],
       ),
