@@ -1,45 +1,7 @@
 import 'package:flutter/material.dart';
-import 'view/shared/back_button.dart';
 
-class MondherScreen extends StatelessWidget {
-  final index;
-  MondherScreen({this.index});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            BackButtons(),
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text('Few Steps Before Getting Your First Job !',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Step(
-              index: 3,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
+import 'index_container.dart';
+import 'step_container.dart';
 class Step extends StatelessWidget {
   const Step({
     this.index,
@@ -113,55 +75,6 @@ class Step extends StatelessWidget {
                     ),
         ],
       ),
-    );
-  }
-}
-
-class StepContainer extends StatelessWidget {
-  const StepContainer({
-    required this.color1,
-    required this.color2,
-  });
-  final Color color1;
-  final Color color2;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        height: 2,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              color1,
-              color2,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class indexContainer extends StatelessWidget {
-  const indexContainer({
-    required this.color,
-    required this.index,
-  });
-  final Color color;
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 30,
-      width: 30,
-      child: Center(
-          child: Text(index.toString(), style: TextStyle(color: Colors.white))),
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(6)),
     );
   }
 }
