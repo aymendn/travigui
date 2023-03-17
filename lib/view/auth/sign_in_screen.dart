@@ -21,11 +21,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   Widget build(BuildContext context) {
     final TextEditingController email = useTextEditingController();
     final TextEditingController password = useTextEditingController();
-    final TextEditingController name = useTextEditingController();
-    final TextEditingController phone = useTextEditingController();
 
     final ValueNotifier<bool> isLoading = useState(false);
-    final ValueNotifier<bool> isSignIn = useState(true);
     final auth = ref.read(authProvider.notifier);
 
     // formKey using hooks and useMemoized
@@ -37,89 +34,48 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     Future<void> onFormSubmitted() async {
       if (formKey.currentState!.validate()) {
         isLoading.value = true;
-        if (isSignIn.value) {
-          await auth.signInWithEmail(
-            email: email.text,
-            password: password.text,
-            onError: (error) {
-              AppMethod.showPopUp(
-                context: context,
-                title: 'Sign In Error',
-                content: error,
-              );
-            },
-          );
-        } else {
-          await auth.signUpWithEmail(
-            email: email.text,
-            password: password.text,
-            name: name.text,
-            onError: (error) {
-              AppMethod.showPopUp(
-                context: context,
-                title: 'Sign In Error',
-                content: error,
-              );
-            },
-          );
-        }
+        await auth.signInWithEmail(
+          email: email.text,
+          password: password.text,
+          onError: (error) {
+            AppMethod.showPopUp(
+              context: context,
+              title: 'Sign In Error',
+              content: error,
+            );
+          },
+        );
         isLoading.value = false;
       }
     }
 
-    void toggleFormType() {
-      formKey.currentState!.reset();
-      isSignIn.value = !isSignIn.value;
-    }
-
-    final String buttonString = isSignIn.value ? 'Sign In' : 'Sign Up';
-    final String toggleString =
-        isSignIn.value ? 'Create an account' : 'Sign In';
-
-    final String questionString =
-        isSignIn.value ? 'Don\'t have an account?' : 'Already have an account?';
-
     return Scaffold(
-      appBar: AppBar(title: Text(buttonString)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          const Text('back button here'),
+          const Text(
+            'Let’s Get You Into Your Account',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           Form(
             key: formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                AnimatedContainer(
-                  constraints: BoxConstraints(
-                    maxHeight: isSignIn.value ? 0 : 80,
-                  ),
-                  duration: const Duration(milliseconds: 300),
-                  child: CustomTextFormField(
-                    controller: name,
-                    label: 'Name',
-                    validator: isSignIn.value ? AppMethod.nameValidator : null,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                AnimatedContainer(
-                  constraints: BoxConstraints(
-                    maxHeight: isSignIn.value ? 0 : 80,
-                  ),
-                  duration: const Duration(milliseconds: 300),
-                  child: CustomTextFormField(
-                    controller: phone,
-                    label: 'Phone',
-                    validator: isSignIn.value ? AppMethod.phoneValidator : null,
-                  ),
-                ),
                 const SizedBox(height: 16),
                 CustomTextFormField(
+                  icon: const Icon(Icons.person),
                   controller: email,
                   label: 'Email',
                   validator: AppMethod.emailValidator,
                 ),
                 const SizedBox(height: 16),
                 CustomTextFormField(
+                  icon: const Icon(Icons.lock),
                   controller: password,
                   label: 'Password',
                   validator: AppMethod.passwordValidator,
@@ -128,21 +84,17 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 const SizedBox(height: 24),
                 CustomButton(
                   onPressed: onFormSubmitted,
-                  child: isLoading.value
-                      ? const CircularProgressIndicator(color: Colors.white)
-                      : Text(
-                          buttonString,
-                          style: const TextStyle(fontSize: 17),
-                        ),
+                  text: 'Sign In',
+                  isLoading: isLoading.value,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(questionString),
+                    const Text('Don’t Have An Account? '),
                     TextButton(
-                      onPressed: toggleFormType,
-                      child: Text(
-                        toggleString,
+                      onPressed: () {},
+                      child: const Text(
+                        'Sign Up',
                         textAlign: TextAlign.end,
                       ),
                     ),

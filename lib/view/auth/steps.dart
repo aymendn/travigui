@@ -6,7 +6,7 @@ class Steps extends StatelessWidget {
   const Steps({
     super.key,
     required this.currentSteps,
-    this.stepsCount = 3,
+    this.stepsCount = 4,
   });
 
   final int currentSteps;
