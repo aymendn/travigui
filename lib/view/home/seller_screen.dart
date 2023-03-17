@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../core/app_exension.dart';
-import '../../core/app_route.dart';
 
 class SellerScreen extends ConsumerWidget {
   const SellerScreen({super.key});
@@ -16,13 +12,17 @@ class SellerScreen extends ConsumerWidget {
       ),
       body: Column(
         children: [
-          Text('home screen of seller'),
+          const Text('home screen of seller'),
           Row(
             children: [
-              Text('seller'),
+              const Text('seller'),
               ElevatedButton(
-                  onPressed: () => context.push(AppRoute.announcmentDetails),
-                  child: Text('check'))
+                onPressed: () {
+                  // context.push(AppRoute.announcmentDetails);
+                  Navigator.pushNamed(context, '/announcment-details');
+                },
+                child: const Text('check'),
+              ),
             ],
           )
         ],

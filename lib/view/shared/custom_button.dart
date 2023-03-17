@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
       style: FilledButton.styleFrom(
         backgroundColor: color,
         foregroundColor: borderColor ?? AppColor.white,
-        minimumSize: Size.fromHeight(height),
+        minimumSize: Size(0, height),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),

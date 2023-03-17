@@ -5,14 +5,16 @@ class AnnouncmentDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text('AnnouncmentDetailsScreen'),
+        title: const Text('AnnouncmentDetailsScreen'),
       ),
       body: Column(
         children: [
-          Text('AnnouncmentDetailsScreen'),
-          ElevatedButton(onPressed: (){}, child: Text('Dispose of the announcement'))
+          const Text('AnnouncmentDetailsScreen'),
+          ElevatedButton(
+              onPressed: () {},
+              child: const Text('Dispose of the announcement'))
         ],
       ),
     );

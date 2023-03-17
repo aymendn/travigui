@@ -11,9 +11,9 @@ class ServiceFormScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text('ServiceFormScreen'),
-          ElevatedButton(onPressed: (){}, child: Text('post your service')),
-          
+          const Text('ServiceFormScreen'),
+          ElevatedButton(
+              onPressed: () {}, child: const Text('post your service')),
         ],
       ),
     );

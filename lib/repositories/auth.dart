@@ -1,8 +1,5 @@
-import 'package:google_sign_in/google_sign_in.dart';
-
 class AuthRepository {
   const AuthRepository._();
-
 
   static Future<void> signInWithEmail({
     required String email,
@@ -22,7 +19,7 @@ class AuthRepository {
     // await auth.createUserWithEmailAndPassword(
     //   email: email,
     //   password: password,
-      
+
     // );
 
     // if(name != null) await auth.currentUser!.updateDisplayName(name);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class JobFormScreen extends StatelessWidget {
   const JobFormScreen({super.key});
 
@@ -10,9 +11,8 @@ class JobFormScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text('JobFormScreen'),
-          ElevatedButton(onPressed: (){}, child: Text('post your job')),
-          
+          const Text('JobFormScreen'),
+          ElevatedButton(onPressed: () {}, child: const Text('post your job')),
         ],
       ),
     );

@@ -26,7 +26,7 @@ class Steps extends StatelessWidget {
             width: isCurrentStep ? 24 : 6,
             height: 6,
             decoration: BoxDecoration(
-              color: isCurrentStep ? AppColor.secondary : AppColor.grey,
+              color: isCurrentStep ? AppColor.primary : AppColor.grey,
               borderRadius: BorderRadius.circular(3),
             ),
           );

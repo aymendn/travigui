@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'app_route.dart';
-
 extension Route on BuildContext {
   void push(String routeName) {
     Navigator.of(this).pushNamed(routeName);
@@ -11,7 +9,7 @@ extension Route on BuildContext {
     Navigator.of(this).pushReplacementNamed(routeName);
   }
 
-  void pop(){
+  void pop() {
     Navigator.of(this).pop();
   }
 }

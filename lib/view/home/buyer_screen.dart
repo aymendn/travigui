@@ -12,11 +12,13 @@ class BuyerScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('buyer'),
       ),
-    body: Column(
+      body: Column(
         children: [
-          Text('home screen of buyer'),
-          ElevatedButton(onPressed: () => context.push(AppRoute.chooseAnnouncement), child: Text("Add Annoncement")),
-
+          const Text('home screen of buyer'),
+          ElevatedButton(
+            onPressed: () => context.push(AppRoute.chooseAnnouncement),
+            child: const Text("Add Annoncement"),
+          ),
         ],
       ),
     );
