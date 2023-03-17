@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
-import 'view/auth/sign_in_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/app_color.dart';

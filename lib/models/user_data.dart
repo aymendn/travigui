@@ -1,5 +1,3 @@
-
-
 class UserData {
   UserData({
     required this.score,
@@ -15,8 +13,6 @@ class UserData {
   String? _name;
   String? _email;
   String? _photoURL;
-
-
 
   factory UserData.empty() => UserData(score: 0);
 }
