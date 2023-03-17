@@ -78,7 +78,7 @@ class MondheActivateScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: CustomButton(
               onPressed: () {},
-              text: 'ignore (Not Recommended)',
+              text: 'Activate My Account',
               color: Colors.blue,
               isFullWidth: true,
             ),
