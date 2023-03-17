@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'core/app_route.dart';
+import 'mondher_screen.dart';
 import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './core/app_route.dart';
 import 'core/app_color.dart';
 import 'view/auth/seller_or_buyer_screen.dart';
+import 'view/auth/sign_in_screen.dart';
 import 'view/auth/sign_up_screen.dart';
 import 'view/laoding/loading_screen.dart';
 import 'view/home/buyer_screen.dart';
@@ -45,7 +47,7 @@ class IwdApp extends ConsumerWidget {
       ),
       routes: AppRoute.routes,
 
-      home:  SignUpScreen(),
+      home:  MondherScreen(),
 
       // home: isFirstTime
       //     ? const OnboardingScreen()
