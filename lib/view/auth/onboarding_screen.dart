@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../core/app_color.dart';
+import '../../core/app_constant.dart';
 import '../../core/app_exension.dart';
 import '../../core/app_route.dart';
 import '../shared/custom_button.dart';
@@ -47,16 +48,16 @@ class OnboardingScreen extends HookConsumerWidget {
             physics: const NeverScrollableScrollPhysics(),
             children: [
               Container(
-                color: Colors.red,
+                child: Image.asset(AppConstant.createWork,),
               ),
               Container(
-                color: Colors.blue,
+                 child: Image.asset(AppConstant.digitalNomad,),
               ),
               Container(
-                color: Colors.green,
+                 child: Image.asset(AppConstant.regestration,),
               ),
               Container(
-                color: Colors.yellow,
+                 child: Image.asset(AppConstant.socialMedia,),
               ),
             ],
           ),

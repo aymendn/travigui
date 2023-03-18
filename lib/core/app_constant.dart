@@ -8,6 +8,10 @@ class AppConstant {
   static const String servicesUrl = '$baseUrl/getallservices';
 
   static const String logo = 'assets/images/logo.svg';
+  static const String createWork = 'assets/images/Create Work 1 (1).png';
+  static const String digitalNomad = 'assets/images/Digital Nomad 1.png';
+  static const String regestration = 'assets/images/Registration 1.png';
+  static const String socialMedia = 'assets/images/Social Media 1 (1).png';
 }
 
 extension URI on String {
