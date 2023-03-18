@@ -5,6 +5,7 @@ import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/app_color.dart';
+import 'view/laoding/loading_screen.dart';
 import 'view/shared/loading.dart';
 
 Future<void> main() async {
@@ -40,7 +41,7 @@ class IwdApp extends ConsumerWidget {
       ),
       routes: AppRoute.routes,
 
-      home: const Loading(),
+      home: const LoadingScreen(),
       // home: isFirstTime
       //     ? const OnboardingScreen()
       //     : StreamBuilder(
