@@ -7,7 +7,7 @@ Connecting you with the right job
 </p>
 <hr>
 
-<h1 align="center"><a  href="https://raw.githubusercontent.com/aymendn/travigui/main/apk/app-release.apk">⬇ Download App (APK)</a></h1>
+<h1 align="center"><a  href="https://raw.githubusercontent.com/aymendn/travigui/main/apk/travigui.apk">⬇ Download App (APK)</a></h1>
 
 Travigui is a job-connecting app that helps workers from any domain find jobs and connects them with people who need a job done. The app is built with Flutter and Node.js and uses a MongoDB database to store job and user information.
 
