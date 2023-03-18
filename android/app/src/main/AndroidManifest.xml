@@ -2,7 +2,7 @@
     package="com.example.iwd">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="iwd"
+        android:label="Travigui"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
