@@ -2,23 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../core/app_color.dart';
 import '../active/buyer_active_service_screen.dart';
 import '../home/buyer_screen.dart';
-import '../home/seller_screen.dart';
 import '../message/message_screen.dart';
+import '../settings/settings_screen.dart';
 import '../shared/scaffold_with_safe_area.dart';
 
 class BuyerNav extends HookConsumerWidget {
-  const BuyerNav({super.key});
+  const BuyerNav({super.key, this.startingIndex = 0});
+
+  final int startingIndex;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final index = useState(0);
+    final index = useState(startingIndex);
 
     final screens = [
       const BuyerScreen(),
       const MessageScreen(),
       const BuyerActiveServiceScreen(),
-      const SellerScreen(),
+      const SettingsScreen(),
     ];
 
     return ScaffoldWithSafeArea(
@@ -28,7 +31,7 @@ class BuyerNav extends HookConsumerWidget {
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
         currentIndex: index.value,
-        selectedItemColor: const Color(0xff1B5BFF),
+        selectedItemColor: AppColor.secondary,
         onTap: (value) {
           index.value = value;
         },

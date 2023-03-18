@@ -5,19 +5,23 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../active/seller_active_service_screen.dart';
 import '../home/seller_screen.dart';
 import '../message/message_screen.dart';
+import '../settings/settings_screen.dart';
 import '../shared/scaffold_with_safe_area.dart';
 
 class SellerNav extends HookConsumerWidget {
-  const SellerNav({super.key});
+  const SellerNav({super.key, this.startingIndex = 0});
+
+  final int startingIndex;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final index = useState(0);
+    final index = useState(startingIndex);
 
     final screens = [
       const SellerScreen(),
       const MessageScreen(),
       const SellerActiveServiceScreen(),
-      const SellerScreen(),
+      const SettingsScreen(),
     ];
 
     return ScaffoldWithSafeArea(
