@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'core/app_route.dart';
+import 'mondher_activate_screen.dart';
 import 'providers/onboarding.dart';
 import 'providers/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/app_color.dart';
 import 'view/auth/seller_form/sign_up_third_screen.dart';
+import 'view/home/buyer_details_screen.dart';
+import 'view/home/buyer_screen.dart';
+import 'view/home/seller_details_screen.dart';
+import 'view/home/seller_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +45,10 @@ class IwdApp extends ConsumerWidget {
       ),
       routes: AppRoute.routes,
 
-      home: const SignUpThirdScreen(),
+
+
+      home:  BuyerDetailsScreen(),
+
 
       // home: isFirstTime
       //     ? const OnboardingScreen()
