@@ -14,11 +14,12 @@ class BuyerScreenDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
+              IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
               CustomButton(
                 text: 'Recruiter',
                 onPressed: () {},
-                color: Color(0xffF56D38),
+                color: const Color(0xffF56D38),
               )
             ],
           )

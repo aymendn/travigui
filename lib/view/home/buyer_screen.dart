@@ -13,9 +13,9 @@ class BuyerScreen extends StatefulWidget {
 }
 
 class _BuyerScreenState extends State<BuyerScreen> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   late TabController _tabController;
-  String _searchText = '';
+  final String _searchText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _BuyerScreenState extends State<BuyerScreen> {
           ),
         ],
         currentIndex: 0,
-        selectedItemColor: Color(0xffF56D38),
+        selectedItemColor: const Color(0xffF56D38),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -58,23 +58,23 @@ class _BuyerScreenState extends State<BuyerScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Logo(),
+                    const Logo(),
                     CustomButton(
                       text: 'Poster une Service',
                       icon: Icons.add,
-                      color: Color(0xffF56D38),
+                      color: const Color(0xffF56D38),
                       onPressed: () {},
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 CustomSearchBar(searchController: _searchController),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                CustomCard(
+                const CustomCard(
                   text: 'Aymen Dennoub',
                   location: 'Cheraga, Alger',
                   mainService: 'Développeur Web',

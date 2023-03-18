@@ -4,6 +4,7 @@ import '../shared/custom_button.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
+    super.key,
     required this.text,
     required this.location,
     this.price = '',
@@ -28,14 +29,14 @@ class CustomCard extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            child: Text(image),
             decoration: BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.circular(10),
             ),
+            child: Text(image),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         Expanded(
@@ -47,34 +48,35 @@ class CustomCard extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Text(
                     text,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on,
                       size: 15,
                       color: Color(0xffADB5BD),
                     ),
                     Text(
                       location,
-                      style: TextStyle(color: Color(0xffADB5BD), fontSize: 14),
+                      style: const TextStyle(
+                          color: Color(0xffADB5BD), fontSize: 14),
                     ),
                   ],
                 ),
                 Row(
                   children: [
-                    Container(
+                    SizedBox(
                       width: 100,
                       child: Text(
                         isSeller ? price : mainService,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0xff495057),
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     CustomButton(
                       text: buttonText,
                       onPressed: () {},
