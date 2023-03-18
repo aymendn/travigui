@@ -5,10 +5,12 @@ import '../view/auth/seller_form/sign_up_third_screen.dart';
 import '../view/auth/sign_in_screen.dart';
 import '../view/auth/seller_form/sign_up_screen.dart';
 import '../view/filter/filter_screen.dart';
+import '../view/home/buyer_details_screen.dart';
 import '../view/home/buyer_screen.dart';
 import '../view/home/seller_details_screen.dart';
 import '../view/home/seller_screen.dart';
 import '../view/nav/seller_nav.dart';
+import '../view/recruter_screen.dart';
 import '../view/scan/scan_screen.dart';
 
 class AppRoute {
@@ -32,8 +34,8 @@ class AppRoute {
   static const String filter = '/filter';
   static const String scan = '/scan';
   static const String sellerDetails = '/seller-details';
-
-
+  static const String buyerDetails = '/buyer-details';
+  static const String recruter = '/recruter';
 
 
   static final routes = {
@@ -50,5 +52,7 @@ class AppRoute {
     // buyerNav: (context) => const BuyerNav(),
     scan: (context) => const ScanScreen(),
     sellerDetails: (context) => const SellerDetailsScreen(),
+    buyerDetails: (context) => const BuyerDetailsScreen(),
+     recruter: (context) => const RecruterScreen(),
   };
 }

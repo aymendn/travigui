@@ -26,7 +26,9 @@ class CustomCard extends StatelessWidget {
     void onButtonPressed() {
       if (isSeller) {
         Navigator.of(context).pushNamed(AppRoute.sellerDetails);
-      } else {}
+      } else {
+        Navigator.of(context).pushNamed(AppRoute.buyerDetails);
+      }
     }
 
     return Container(
