@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
     super.key,
-    required TextEditingController searchController,
-  }) : _searchController = searchController;
+    required this.searchController,
+  });
 
-  final TextEditingController _searchController;
+  final TextEditingController searchController;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-        controller: _searchController,
+        controller: searchController,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Color(0xffADB5BD)),

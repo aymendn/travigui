@@ -5,6 +5,7 @@ class AppConstant {
   static const String baseUrl = '$url/api/v1';
   static const String loginUrl = '$baseUrl/login';
   static const String registerUrl = '$baseUrl/register';
+  static const String servicesUrl = '$baseUrl/getallservices';
 
   static const String logo = 'assets/images/logo.svg';
 }

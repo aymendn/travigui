@@ -1,92 +1,114 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
+import '../../core/app_color.dart';
+import '../../core/app_route.dart';
 import '../shared/custom_button.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
-    required this.text,
+    required this.title,
     required this.location,
-    this.price = '',
-    required this.image,
-    required this.buttonText,
-    required this.buttonColor,
-    this.mainService = '',
-    required this.isSeller,
+    required this.subtitle,
+    required this.imageUrl,
+    this.isSeller = true,
   });
-  final String text;
+  final String title;
   final String location;
-  final String price;
-  final String mainService;
-  final String image;
-  final String buttonText;
-  final Color buttonColor;
+  final String subtitle;
+  final String imageUrl;
   final bool isSeller;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
+    void onButtonPressed() {
+      if (isSeller) {
+        Navigator.of(context).pushNamed(AppRoute.sellerDetails);
+      } else {}
+    }
+
+    return Container(
+      height: 160,
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.05),
+            spreadRadius: 1,
+            blurRadius: 4,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: min(120, MediaQuery.of(context).size.width * 0.3),
+            height: 140,
             decoration: BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Text(image),
+            child: Text(imageUrl),
           ),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        Expanded(
-            flex: 2,
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Text(
-                    text,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                Text(
+                  title,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     const Icon(
-                      Icons.location_on,
-                      size: 15,
+                      Icons.location_on_outlined,
+                      size: 14,
                       color: Color(0xffADB5BD),
                     ),
+                    const SizedBox(width: 5),
                     Text(
                       location,
                       style: const TextStyle(
-                          color: Color(0xffADB5BD), fontSize: 14),
+                          color: Color(0xffADB5BD), fontSize: 13),
                     ),
                   ],
                 ),
+                const SizedBox(height: 2),
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                    color: Color(0xff495057),
+                    fontSize: 13,
+                  ),
+                ),
+                const Spacer(),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SizedBox(
-                      width: 100,
-                      child: Text(
-                        isSeller ? price : mainService,
-                        style: const TextStyle(
-                          color: Color(0xff495057),
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
                     CustomButton(
-                      text: buttonText,
-                      onPressed: () {},
-                      color: buttonColor,
+                      text: isSeller ? 'Postuler' : 'Recruter',
+                      onPressed: onButtonPressed,
+                      color: isSeller ? AppColor.primary : AppColor.secondary,
+                      height: 40,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                     ),
                   ],
-                )
+                ),
               ],
-            )),
-      ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

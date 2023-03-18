@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../core/app_color.dart';
 
+import '../../../core/app_exension.dart';
+import '../../../core/app_methods.dart';
+import '../../../core/app_route.dart';
 import '../../shared/custom_button.dart';
 import '../../shared/scaffold_with_safe_area.dart';
 
@@ -11,6 +15,23 @@ class ActivateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sizedBoxSize = MediaQuery.of(context).size;
+    final picker = ImagePicker();
+
+    void onIgnore() {
+      context.pushReplacement(AppRoute.sellerNav);
+    }
+
+    Future<void> onActivate() async {
+      final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+      if (photo != null && context.mounted) {
+        context.pushReplacement(AppRoute.sellerNav);
+        AppMethod.showSnackBar(
+          context: context,
+          message: 'Your account is activated',
+        );
+      }
+    }
+
     return ScaffoldWithSafeArea(
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -61,10 +82,7 @@ class ActivateScreen extends StatelessWidget {
             ),
             const Spacer(),
             CustomButton(
-              onPressed: () {
-                //TODO
-                // context.pushReplacement(AppRoute.)
-              },
+              onPressed: onIgnore,
               text: 'Ignore (Not Recommended)',
               textColor: AppColor.grey600,
               color: AppColor.grey,
@@ -72,10 +90,7 @@ class ActivateScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             CustomButton(
-              onPressed: () {
-                //TODO
-                // context.pushReplacement(AppRoute.)
-              },
+              onPressed: onActivate,
               text: 'Activate My Account',
               color: AppColor.primary,
               isFullWidth: true,

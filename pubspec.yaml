@@ -43,6 +43,10 @@ dependencies:
   http: ^0.13.5
   flutter_map: ^3.1.0
   latlong2: ^0.8.1
+  textfield_tags: ^2.0.2
+  document_scanner: ^0.2.1
+  camera: ^0.10.3+2
+  image_picker: ^0.8.7
 
 dev_dependencies:
   flutter_test:

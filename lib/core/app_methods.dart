@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../view/shared/logo.dart';
+import 'app_color.dart';
+
 class AppMethod {
   const AppMethod._();
-  
 
   static String? emailValidator(String? email) {
     if (email == null || email.isEmpty) {
@@ -75,14 +77,13 @@ class AppMethod {
     );
   }
 
-
   static String formattedDate(DateTime date) {
     bool isYesterday = date.difference(DateTime.now()).inDays == -1;
     bool isToday = date.difference(DateTime.now()).inDays == 0;
 
     if (isYesterday) return 'Yesterday';
     if (isToday) return 'Today';
-    
+
     const months = {
       1: 'January',
       2: 'February',
@@ -97,7 +98,62 @@ class AppMethod {
       11: 'November',
       12: 'December',
     };
-    
+
     return '${months[date.month]} ${date.day}, ${date.year}';
+  }
+
+  static void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: SizedBox(
+            height: 100,
+            width: 100,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Logo(),
+                  SizedBox(height: 20),
+                  SizedBox(
+                    width: 100,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: LinearProgressIndicator(
+                        minHeight: 5,
+                        color: AppColor.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  static void hideLoadingDialog(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  static void showSnackBar({
+    required BuildContext context,
+    required String message,
+    Color? color,
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color ?? AppColor.primary,
+      ),
+    );
   }
 }

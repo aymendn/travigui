@@ -15,6 +15,7 @@ class CustomTextFormField extends HookConsumerWidget {
     this.hint = '',
     this.keyboradType = TextInputType.text,
     this.isLarge = false,
+    this.suffixIcon,
   });
 
   final TextEditingController controller;
@@ -25,6 +26,7 @@ class CustomTextFormField extends HookConsumerWidget {
   final Widget? icon;
   final TextInputType keyboradType;
   final bool isLarge;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -58,6 +60,7 @@ class CustomTextFormField extends HookConsumerWidget {
           obscureText: obscureText && isObscure.value,
           controller: controller,
           decoration: InputDecoration(
+            suffixIcon: suffixIcon,
             hintStyle: const TextStyle(
               color: AppColor.greyText,
             ),

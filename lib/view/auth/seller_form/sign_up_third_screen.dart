@@ -70,19 +70,23 @@ class _SignUpThirdScreenState extends ConsumerState<SignUpThirdScreen> {
           SizedBox(height: height * 0.04),
           Wrap(
             spacing: 10,
+            runSpacing: 10,
             children: [
               for (int i = 0; i < interrestsList.length; i++)
-                ChoiceChip(
-                  side: BorderSide.none,
-                  backgroundColor: AppColor.grey,
-                  label: Text(interrestsList[i]),
-                  selected: authReader.isInterrestSelected(interrestsList[i]),
-                  onSelected: (bool selected) {
-                    if (selected) {
-                      authReader.addInterrest(interrestsList[i]);
-                    } else {
+                CustomButton(
+                  text: interrestsList[i],
+                  color: authReader.isInterrestSelected(interrestsList[i])
+                      ? AppColor.secondary
+                      : AppColor.grey,
+                  textColor: authReader.isInterrestSelected(interrestsList[i])
+                      ? AppColor.white
+                      : AppColor.grey600,
+                  onPressed: () {
+                    if (authReader.isInterrestSelected(interrestsList[i])) {
                       authReader.removeInterrest(interrestsList[i]);
-                    }
+                    } else {
+                      authReader.addInterrest(interrestsList[i]);
+                    } 
                   },
                 ),
             ],

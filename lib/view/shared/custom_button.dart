@@ -4,7 +4,7 @@ import '../../core/app_color.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
-    required this.text,
+    this.text,
     this.onPressed,
     this.color = AppColor.primary,
     this.borderColor,
@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
   });
 
-  final String text;
+  final String? text;
   final VoidCallback? onPressed;
   final Color color;
   final Color? textColor;
@@ -62,14 +62,17 @@ class CustomButton extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (icon != null && !isIconRight) Icon(icon, size: 16),
-                if (icon != null && !isIconRight) const SizedBox(width: 4),
-                Text(
-                  text,
-                  style: const TextStyle(
-                    fontSize: 16,
+                if (icon != null && !isIconRight && text != null)
+                  const SizedBox(width: 4),
+                if (text != null)
+                  Text(
+                    text!,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                if (icon != null && isIconRight) const SizedBox(width: 4),
+                if (icon != null && isIconRight && text != null)
+                  const SizedBox(width: 4),
                 if (icon != null && isIconRight) Icon(icon, size: 16),
               ],
             ),
