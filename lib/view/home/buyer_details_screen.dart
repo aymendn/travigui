@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../shared/custom_button.dart';
 
-class BuyerScreenDetails extends StatelessWidget {
-  const BuyerScreenDetails({super.key});
+class BuyerDetailsScreen extends StatelessWidget {
+  const BuyerDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,15 @@ class BuyerScreenDetails extends StatelessWidget {
                 text: 'Recruiter',
                 onPressed: () {},
                 color: Color(0xffF56D38),
-              )
+              ),
             ],
-          )
+          ),
+          CircleAvatar(
+            backgroundColor: Colors.red,
+            radius: 90,
+          ),
+          Text('Aymen Dennoub'),
+
         ]),
       ),
     );
