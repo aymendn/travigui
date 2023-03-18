@@ -11,6 +11,8 @@ Connecting you with the right job
 
 Travigui is a job-connecting app that helps workers from any domain find jobs and connects them with people who need a job done. The app is built with Flutter and Node.js and uses a MongoDB database to store job and user information.
 
+## Note
+> The Travigui app is currently in development, with both the front-end and back-end components nearing completion at around 90% progress. However, while much of the core functionality has been implemented, there is still some work to be done in linking the front-end and back-end components together.
 
 ## Usage
 
