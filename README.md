@@ -15,6 +15,12 @@ Travigui is a job-connecting app that helps workers from any domain find jobs an
 
 The Travigui app is currently in development, with both the front-end and back-end components nearing completion at <b>around 90% progress</b>. However, while much of the core functionality has been implemented, there is still some work to be done in linking the front-end and back-end components together.
 
+## Technologies
+
+- Flutter: Front-end framework
+- Node.js: Back-end framework <b align="center"><a  href="https://github.com/Soraya2972002/iwd_backend">(Check GitHub repo for more details)</b></h1>
+- MongoDB: Database
+
 ## Usage
 
 To use Travigui, follow these steps:
