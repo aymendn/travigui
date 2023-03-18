@@ -11,6 +11,7 @@ import '../../shared/back_button.dart';
 import '../../shared/custom_button.dart';
 import '../../shared/custom_text_form_field.dart';
 import '../../shared/scaffold_with_safe_area.dart';
+import '../../shared/stepper/stepper.dart';
 
 class SignUpSecondScreen extends StatefulHookConsumerWidget {
   const SignUpSecondScreen({super.key});
@@ -41,20 +42,8 @@ class _SignUpSecondScreenState extends ConsumerState<SignUpSecondScreen> {
     );
 
     Future<void> onFormSubmitted() async {
-      if (formKey.currentState!.validate()) {
-        isLoading.value = true;
-        // await auth.signInWithEmail(
-        //   email: email.text,
-        //   password: password.text,
-        //   onError: (error) {
-        //     AppMethod.showPopUp(
-        //       context: context,
-        //       title: 'Sign In Error',
-        //       content: error,
-        //     );
-        //   },
-        // );
-        isLoading.value = false;
+      if (!formKey.currentState!.validate()) {
+        context.pushReplacement(AppRoute.signUpThird);
       }
     }
 
@@ -76,12 +65,7 @@ class _SignUpSecondScreenState extends ConsumerState<SignUpSecondScreen> {
             ),
           ),
           SizedBox(height: height * 0.03),
-          const Text(
-            'stepper index: 1',
-            style: TextStyle(
-              color: AppColor.grey600,
-            ),
-          ),
+          const Steppers(index: 2),
           SizedBox(height: height * 0.03),
           Form(
             key: formKey,
@@ -126,7 +110,6 @@ class _SignUpSecondScreenState extends ConsumerState<SignUpSecondScreen> {
                         context.pushReplacement(AppRoute.signUp);
                       },
                       text: 'Precedent',
-                      // TODO: change this to true when the previous button is clicked
                       padding: const EdgeInsets.symmetric(
                         horizontal: 24,
                         vertical: 10,

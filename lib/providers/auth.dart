@@ -8,12 +8,30 @@ import '../core/app_constant.dart';
 import '../models/user_data.dart';
 
 final authProvider =
-    StateNotifierProvider<AuthNotifier, UserData?>((ref) => AuthNotifier());
+    StateNotifierProvider<AuthNotifier, UserData>((ref) => AuthNotifier());
 
-class AuthNotifier extends StateNotifier<UserData?> {
-  AuthNotifier([UserData? userData]) : super(userData);
+class AuthNotifier extends StateNotifier<UserData> {
+  AuthNotifier([UserData? userData]) : super(userData ?? UserData.empty());
 
-  void update(UserData? userData) => state = userData;
+  void update(UserData userData) => state = userData;
+
+  void addInterrest(String interrest) {
+    state = state.copyWith(interrests: [
+      ...state.interrests,
+      if (!state.interrests.contains(interrest)) interrest,
+    ]);
+  }
+
+  void removeInterrest(String interrest) {
+    state = state.copyWith(interrests: [
+      for (final i in state.interrests)
+        if (i != interrest) i,
+    ]);
+  }
+
+  bool isInterrestSelected(String interrest) {
+    return state.interrests.contains(interrest);
+  }
 
   Future<void> signInWithEmail({
     required String email,
@@ -40,9 +58,9 @@ class AuthNotifier extends StateNotifier<UserData?> {
         return;
       }
 
-      final userData = UserData(
-          // TODO: Add more data
-          );
+      // final userData = UserData(
+      //     // TODO: Add more data
+      //     );
 
       // TODO: assign userData to state
       print(response.body);
