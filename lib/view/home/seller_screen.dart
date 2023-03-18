@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
-import '../shared/custom_button.dart';
 import '../shared/logo.dart';
 import 'custom_card.dart';
 import 'custom_search_bar.dart';
 
 class SellerScreen extends StatefulWidget {
+  const SellerScreen({super.key});
+
   @override
   State<SellerScreen> createState() => _SellerScreenState();
 }
 
 class _SellerScreenState extends State<SellerScreen> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   late TabController _tabController;
 
-  String _searchText = '';
+  final String _searchText = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
           BottomNavigationBarItem(
             icon: Icon(
@@ -46,8 +46,7 @@ class _SellerScreenState extends State<SellerScreen> {
           ),
         ],
         currentIndex: 0,
-        selectedItemColor: Color(0xff1B5BFF),
-      
+        selectedItemColor: const Color(0xff1B5BFF),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -56,15 +55,15 @@ class _SellerScreenState extends State<SellerScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Logo(),
-                SizedBox(
+                const Logo(),
+                const SizedBox(
                   height: 20,
                 ),
                 CustomSearchBar(searchController: _searchController),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                CustomCard(
+                const CustomCard(
                     text: 'Taking My dog On A Trip everyday for 2h',
                     location: 'Cheraga, Alger',
                     price: '10,000 Da/Mo',

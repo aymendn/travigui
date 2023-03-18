@@ -8,7 +8,7 @@ class SellerDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFDFDFD),
+      backgroundColor: const Color(0xffFDFDFD),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -19,14 +19,14 @@ class SellerDetailsScreen extends StatelessWidget {
                     color: Colors.amber,
                     borderRadius: BorderRadius.circular(10)),
                 height: 300,
-                child: Center(child: Text('here image')),
+                child: const Center(child: Text('here image')),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: const [
                   Text(
                     'Taking My dog On A Trip everyday for 2h',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
@@ -34,11 +34,11 @@ class SellerDetailsScreen extends StatelessWidget {
                   Icon(Icons.favorite_border)
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
-                children: [
+                children: const [
                   Icon(
                     Icons.location_on,
                     color: Color(0xffADB5BD),
@@ -49,65 +49,70 @@ class SellerDetailsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              Text(
+              const Text(
                 'Job Description',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'The dog walker is responsible for taking clients dogs out for regular walks and ensuring that they receive adequate exercise, fresh air, and potty breaks. The job may also involve providing food and water to the dog as instructed by the owner, as well as cleaning up after the dog during and after the walk.',
                 style: TextStyle(color: Color(0xffADB5BD)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 'Demanded Skills',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: Color(0xffDEE2E6)),
+                    border:
+                        Border.all(width: 2, color: const Color(0xffDEE2E6)),
                     borderRadius: BorderRadius.circular(10)),
                 child: Column(
                   children: [
                     Container(
-                      child: Text('Experience and knowledge of dog behavior'),
+                      child: const Text(
+                          'Experience and knowledge of dog behavior'),
                     ),
-                    Divider(),
+                    const Divider(),
                     Container(
-                      child: Text('Experience and knowledge of dog behavior'),
+                      child: const Text(
+                          'Experience and knowledge of dog behavior'),
                     ),
-                    Divider(),
+                    const Divider(),
                     Container(
-                      child: Text('Experience and knowledge of dog behavior'),
+                      child: const Text(
+                          'Experience and knowledge of dog behavior'),
                     )
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Published By',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
-                decoration: BoxDecoration(color: Color(0xffFFFFFF)),
+                decoration: const BoxDecoration(color: Color(0xffFFFFFF)),
                 child: Row(
-                  children: [
+                  children: const [
                     CircleAvatar(
                       backgroundColor: Colors.red,
                       radius: 25,
@@ -123,7 +128,7 @@ class SellerDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -131,7 +136,7 @@ class SellerDetailsScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
-                      children: [
+                      children: const [
                         Text(
                           '56 bids Rest',
                           style: TextStyle(color: Color(0xff1B5BFF)),
@@ -153,7 +158,7 @@ class SellerDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               )
             ],
