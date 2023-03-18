@@ -1,4 +1,5 @@
 import '../view/auth/onboarding_screen.dart';
+import '../view/auth/seller_form/activate_screen.dart';
 import '../view/auth/seller_form/sign_up_second_screen.dart';
 import '../view/auth/seller_form/sign_up_third_screen.dart';
 import '../view/auth/sign_in_screen.dart';
@@ -25,5 +26,6 @@ class AppRoute {
     signUpSecond: (context) => const SignUpSecondScreen(),
     signUpThird: (context) => const SignUpThirdScreen(),
     onboarding: (context) => const OnboardingScreen(),
+    activate: (context) => const ActivateScreen(),
   };
 }
