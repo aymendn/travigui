@@ -1,6 +1,6 @@
 <h1 align="center">Travigui</h1>
 <p align="center">
-<img width="350" src="assets/images/logo-thu.png" alt="Travigui">
+<img src="assets/images/logo-thu.png" alt="Travigui">
 </p>
 <p align="center">
 Connecting you with the right job
