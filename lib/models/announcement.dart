@@ -19,4 +19,7 @@ class Announcement {
 
   String get location =>
       ['Bab El zouar', 'Cinq Maison', 'Alger Centre'][Random().nextInt(3)];
+
+  String get imageOrPlaceholder =>
+      imageUrl.isEmpty ? 'https://picsum.photos/200/300' : imageUrl;
 }

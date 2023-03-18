@@ -1,169 +1,238 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../core/app_color.dart';
 import '../shared/custom_button.dart';
 
-class SellerDetailsScreen extends StatelessWidget {
+class SellerDetailsScreen extends HookConsumerWidget {
   const SellerDetailsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isFav = useState(false);
     return Scaffold(
       backgroundColor: const Color(0xffFDFDFD),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(10)),
-                height: 300,
-                child: const Center(child: Text('here image')),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Text(
-                    'Taking My dog On A Trip everyday for 2h',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(Icons.favorite_border)
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: const [
-                  Icon(
-                    Icons.location_on,
-                    color: Color(0xffADB5BD),
-                  ),
-                  Text(
-                    'Cheraga,Alger',
-                    style: TextStyle(color: Color(0xffADB5BD)),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const Text(
-                'Job Description',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'The dog walker is responsible for taking clients dogs out for regular walks and ensuring that they receive adequate exercise, fresh air, and potty breaks. The job may also involve providing food and water to the dog as instructed by the owner, as well as cleaning up after the dog during and after the walk.',
-                style: TextStyle(color: Color(0xffADB5BD)),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Text(
-                'Demanded Skills',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                decoration: BoxDecoration(
-                    border:
-                        Border.all(width: 2, color: const Color(0xffDEE2E6)),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Column(
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              children: [
+                Stack(
                   children: [
                     Container(
-                      child: const Text(
-                          'Experience and knowledge of dog behavior'),
+                      color: AppColor.grey200,
+                      height: 250,
+                      child: const Center(
+                        child: Text('here image'),
+                      ),
                     ),
-                    const Divider(),
-                    Container(
-                      child: const Text(
-                          'Experience and knowledge of dog behavior'),
+                    Positioned(
+                      top: 20,
+                      left: 20,
+                      child: CustomButton(
+                        onPressed: Navigator.of(context).pop,
+                        color: AppColor.grey400.withOpacity(0.4),
+                        textColor: AppColor.grey600,
+                        icon: Icons.arrow_back,
+                      ),
                     ),
-                    const Divider(),
-                    Container(
-                      child: const Text(
-                          'Experience and knowledge of dog behavior'),
-                    )
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Published By',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                decoration: const BoxDecoration(color: Color(0xffFFFFFF)),
-                child: Row(
-                  children: const [
-                    CircleAvatar(
-                      backgroundColor: Colors.red,
-                      radius: 25,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text('Mohamed kadous',
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Expanded(
+                            child: Text(
+                              'Taking My dog On A Trip everyday for 2h',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              isFav.value = !isFav.value;
+                            },
+                            icon: Icon(
+                              isFav.value
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color: isFav.value ? Colors.red : Colors.grey,
+                              size: 30,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: const [
+                          Icon(
+                            Icons.location_on_outlined,
+                            color: AppColor.grey500,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            'Cheraga,Alger',
+                            style: TextStyle(
+                              color: AppColor.grey500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      const Text(
+                        'Job Description',
                         style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xff343A40),
-                            fontWeight: FontWeight.bold))
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: const [
-                        Text(
-                          '56 bids Rest',
-                          style: TextStyle(color: Color(0xff1B5BFF)),
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Text(
+                        'The dog walker is responsible for taking clients dogs out for regular walks and ensuring that they receive adequate exercise, fresh air, and potty breaks. The job may also involve providing food and water to the dog as instructed by the owner, as well as cleaning up after the dog during and after the walk.',
+                        style: TextStyle(color: Color(0xffADB5BD)),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Demanded Skills',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                            color: const Color(0xffDEE2E6),
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        Text(
-                          '10,000 Da/Mo',
-                          style: TextStyle(
-                              color: Color(0xff495057),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        )
-                      ],
+                        child: Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Text(
+                                  'Experience and knowledge of dog behavior'),
+                            ),
+                            Divider(
+                                height: 1,
+                                color: Color.fromARGB(167, 222, 226, 230)),
+                            Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Text(
+                                  'Experience and knowledge of dog behavior'),
+                            ),
+                            Divider(
+                                height: 1,
+                                color: Color.fromARGB(167, 222, 226, 230)),
+                            Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Text(
+                                  'Experience and knowledge of dog behavior'),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Text(
+                        'Published By',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 17),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        decoration:
+                            const BoxDecoration(color: Color(0xffFFFFFF)),
+                        child: Row(
+                          children: const [
+                            CircleAvatar(
+                              backgroundColor: Colors.red,
+                              radius: 25,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Mohamed kadous',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Color(0xff343A40),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: const BoxDecoration(
+              color: Color(0xffFFFFFF),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColor.grey100,
+                  offset: Offset(0, -1),
+                  blurRadius: 10,
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      '56 bids Rest',
+                      style: TextStyle(color: Color(0xff1B5BFF)),
                     ),
-                    CustomButton(
-                      text: 'Postulet',
-                      isFullWidth: false,
-                      onPressed: () {},
+                    Text(
+                      '10,000 Da/Mo',
+                      style: TextStyle(
+                          color: Color(0xff495057),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 40,
-              )
-            ],
+                CustomButton(
+                  text: 'Postuler',
+                  onPressed: () {},
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                )
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
