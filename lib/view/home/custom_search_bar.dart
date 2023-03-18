@@ -27,8 +27,9 @@ class CustomSearchBar extends StatelessWidget {
             onPressed: () {},
           ),
           suffixIcon: const IconButton(
-              icon: Icon(Icons.filter_1, color: Color(0xffADB5BD)),
-              onPressed: null),
+            icon: Icon(Icons.filter_1, color: Color(0xffADB5BD)),
+            onPressed: null,
+          ),
         ),
         onChanged: null);
   }

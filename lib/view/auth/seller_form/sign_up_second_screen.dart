@@ -94,6 +94,7 @@ class _SignUpSecondScreenState extends ConsumerState<SignUpSecondScreen> {
                   label: 'Bio',
                   hint: 'Talk A little About Your Self...',
                   isLarge: true,
+                  tooltip: 'Bio is a short description of your self',
                 ),
                 const SizedBox(height: 16),
                 CustomTextFormField(

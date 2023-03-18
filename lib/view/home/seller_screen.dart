@@ -47,7 +47,7 @@ class SellerScreen extends HookConsumerWidget {
                 title: 'Taking My dog On A Trip everyday for 2h',
                 location: 'Cheraga, Alger',
                 subtitle: 'Jarden Carryier',
-                imageUrl: 'the link of the img',
+                imageUrl: 'https://picsum.photos/200/300',
               );
             },
           ),

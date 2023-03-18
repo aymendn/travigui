@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../home/seller_screen.dart';
+import '../message/message_screen.dart';
 import '../shared/scaffold_with_safe_area.dart';
 
 class SellerNav extends HookConsumerWidget {
@@ -13,7 +14,7 @@ class SellerNav extends HookConsumerWidget {
 
     final screens = [
       const SellerScreen(),
-      const SellerScreen(),
+      const MessageScreen(),
       const SellerScreen(),
       const SellerScreen(),
     ];

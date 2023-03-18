@@ -23,3 +23,4 @@ class Announcement {
   String get imageOrPlaceholder =>
       imageUrl.isEmpty ? 'https://picsum.photos/200/300' : imageUrl;
 }
+

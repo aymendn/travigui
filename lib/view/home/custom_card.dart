@@ -47,14 +47,16 @@ class CustomCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
+          SizedBox(
             width: min(120, MediaQuery.of(context).size.width * 0.3),
             height: 140,
-            decoration: BoxDecoration(
-              color: Colors.red,
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
-            child: Text(imageUrl),
           ),
           const SizedBox(
             width: 10,

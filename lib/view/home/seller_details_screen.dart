@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../core/app_color.dart';
 import '../shared/custom_button.dart';
+import 'proposal_form_bottom_sheet.dart';
 
 class SellerDetailsScreen extends HookConsumerWidget {
   const SellerDetailsScreen({super.key});
@@ -11,8 +12,8 @@ class SellerDetailsScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isFav = useState(false);
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color(0xffFDFDFD),
       body: Column(
         children: [
           Expanded(
@@ -23,8 +24,9 @@ class SellerDetailsScreen extends HookConsumerWidget {
                     Container(
                       color: AppColor.grey200,
                       height: 250,
-                      child: const Center(
-                        child: Text('here image'),
+                      child: Image.network(
+                        'https://picsum.photos/800/300',
+                        fit: BoxFit.cover,
                       ),
                     ),
                     Positioned(
@@ -225,7 +227,23 @@ class SellerDetailsScreen extends HookConsumerWidget {
                 ),
                 CustomButton(
                   text: 'Postuler',
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
+                      ),
+                      isScrollControlled: true,
+                      constraints: BoxConstraints(
+                        maxHeight: height * 0.9,
+                      ),
+                      context: context,
+                      builder: (context) {
+                        return const ProposalFormBottomSheet();
+                      },
+                    );
+                  },
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                 )

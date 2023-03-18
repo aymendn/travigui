@@ -16,6 +16,7 @@ class CustomTextFormField extends HookConsumerWidget {
     this.keyboradType = TextInputType.text,
     this.isLarge = false,
     this.suffixIcon,
+    this.tooltip,
   });
 
   final TextEditingController controller;
@@ -27,6 +28,7 @@ class CustomTextFormField extends HookConsumerWidget {
   final TextInputType keyboradType;
   final bool isLarge;
   final Widget? suffixIcon;
+  final String? tooltip;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -42,10 +44,10 @@ class CustomTextFormField extends HookConsumerWidget {
                 label!,
                 style: const TextStyle(fontSize: 14),
               ),
-              if (isLarge)
-                const Tooltip(
-                  message: 'Bio is a short description about you',
-                  child: Icon(
+              if (tooltip != null)
+                Tooltip(
+                  message: tooltip!,
+                  child: const Icon(
                     Icons.info_outline,
                     color: AppColor.greyText,
                   ),
